@@ -21,8 +21,12 @@
         <nav id="nav">
             <ul>
                 <li><a href="/index">Home</a></li>
-                <li><a id="openModalBtn">Sign in</a></li>
-                <li><a href="/signup">Sign up</a></li>
+                {% if user.is_authenticated %}
+                    <li><a id="signOutBtn" href="/signout">Sign out</a></li>
+                {% else %}
+                    <li><a id="openModalBtn">Sign in</a></li>
+                    <li><a href="/signup">Sign up</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
